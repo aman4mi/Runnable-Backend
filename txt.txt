@@ -1,0 +1,80 @@
+    1  cd demo
+    2  git remote add origin https://aman1533@bitbucket.org/aman1533/demo.git
+    3  git remote rm origin
+    4  git remote add origin https://aman1533@bitbucket.org/aman1533/demo.git
+    5  git push -u origin master
+    6  git push -u origin master
+    7  git PULL
+    8  git pull
+    9  git remote add origin https://aman1533@bitbucket.org/aman1533/demo.git
+   10  git push -u origin master
+   11  #!/bin/sh
+   12  # Licensed to the Apache Software Foundation (ASF) under one or more
+   13  # contributor license agreements.  See the NOTICE file distributed with
+   14  # this work for additional information regarding copyright ownership.
+   15  # The ASF licenses this file to You under the Apache License, Version 2.0
+   16  # (the "License"); you may not use this file except in compliance with
+   17  # the License.  You may obtain a copy of the License at
+   18  #
+   19  #     http://www.apache.org/licenses/LICENSE-2.0
+   20  #
+   21  # Unless required by applicable law or agreed to in writing, software
+   22  # distributed under the License is distributed on an "AS IS" BASIS,
+   23  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   24  # See the License for the specific language governing permissions and
+   25  # limitations under the License.
+   26  # -----------------------------------------------------------------------------
+   27  # Start Script for the CATALINA Server
+   28  # -----------------------------------------------------------------------------
+   29  # Better OS/400 detection: see Bugzilla 31132
+   30  os400=false
+   31  case "`uname`" in OS400*) os400=true;; esac
+   32  # resolve links - $0 may be a softlink
+   33  PRG="$0"
+   34  while [ -h "$PRG" ] ; do   ls=`ls -ld "$PRG"`;   link=`expr "$ls" : '.*-> \(.*\)$'`;   if expr "$link" : '/.*' > /dev/null; then     PRG="$link";   else     PRG=`dirname "$PRG"`/"$link";   fi; done
+   35  PRGDIR=`dirname "$PRG"`
+   36  EXECUTABLE=catalina.sh
+   37  # Check that target executable exists
+   38  if $os400; then   eval; else   if [ ! -x "$PRGDIR"/"$EXECUTABLE" ]; then     echo "Cannot find $PRGDIR/$EXECUTABLE";     echo "The file is absent or does not have execute permission";     echo "This file is needed to run this program";     exit 1;   fi; fi
+   39  exec "$PRGDIR"/"$EXECUTABLE" start "$@"
+   40  git remote add origin https://aman1533@bitbucket.org/aman1533/bosonto.git
+   41  git init
+   42  git remote add origin https://aman1533@bitbucket.org/aman1533/bosonto.git
+   43  git push -u origin master
+   44  git status
+   45  git add *
+   46  git status
+   47  git push -u origin master
+   48  git commit -m "first commit"
+   49  git push -u origin master
+   50  history > txt.txt
+   51  more txt.txt 
+   52  history 
+   53  history >> txt.txt
+   54  more txt.txt 
+   55  tail txt.txt 
+   56  tail txt.txt -n 10
+   57  tail txt.txt -n 100
+   58  tail txt.txt -n 100
+   59  tail txt.txt -n 100
+   60  tail txt.txt -n 100
+   61  git commit -m "second commit"
+   62  git push -u origin master
+   63  history
+   64  git init
+   65  git remote add origin https://aman1533@bitbucket.org/aman1533/bosontoalphaone.git
+   66  git push -u origin master
+   67  git add *
+   68  git add -f
+   69  git add * -f
+   70  git commit -m "first commit"
+   71  git push -u origin master
+   72  git init 
+   73  git clone https://aman1533@bitbucket.org/aman1533/bosontoalphaone.git git clone https://aman1533@bitbucket.org/aman1533/bosontoalphaone.git^?
+   74   git clone https://aman1533@bitbucket.org/aman1533/bosontoalphaone.git^?
+   75  git remote add origin https://aman1533@bitbucket.org/aman1533/bosontoalphaone.git
+   76  git add *
+   77  git commit -m "first commit"
+   78  git push -u origin master
+   79  history > txt.txt
+   80  history>txt.txt

@@ -1,0 +1,96 @@
+<div class="container" th:fragment="firstcreate" xmlns:th="http://www.w3.org/1999/xhtml">
+    <form id="studentform">
+        <div class="row">
+
+
+            <div class="col-sm-8">
+                <h1>(Falgun)Student Info.</h1>
+
+            </div>
+
+            <div class="col-sm-4">
+                <h6><a href="/"><-back</a></h6>
+            </div>
+
+            <div class="col-sm-4">
+
+                <label class="col-md-5" for="studentId">Strudent Id: <span class="mandatoryfield">*</span></label>
+                <input placeholder="" name="studentId" id="studentId"
+                       class="input-fields validate[required]"
+                       maxlength="50"
+                       tyle=" height: 21px; width:250px;" type="text">
+
+                <label class="col-md-5" for="studentName">Std. Name: <span class="mandatoryfield">*</span></label>
+                <input placeholder="" name="studentName" id="studentName"
+                       class="input-fields validate[required]"
+                       maxlength="50"
+                       tyle=" height: 21px; width:250px;" type="text">
+
+            </div>
+            <div class="col-sm-4" id="col2">
+
+                <label class="col-md-5" for="courseId">Course Id: <span class="mandatoryfield">*</span></label>
+                <input placeholder="" name="courseId" id="courseId"
+                       class="input-fields validate[required]"
+                       maxlength="50"
+                       tyle=" height: 21px; width:250px;" type="text">
+
+                <label class="col-md-5" for="courseTitle">Course Title: <span class="mandatoryfield">*</span></label>
+                <input placeholder="" name="courseTitle" id="courseTitle"
+                       class="input-fields validate[required]"
+                       maxlength="50"
+                       tyle=" height: 21px; width:250px;" type="text">
+
+
+            </div>
+            <div class="col-sm-4" id="col3">
+
+                <label class="col-md-5" for="deptName">Dept Name: <span class="mandatoryfield">*</span></label>
+                <input placeholder="" name="deptName" id="deptName"
+                       class="input-fields validate[required]"
+                       maxlength="50"
+                       tyle=" height: 21px; width:250px;" type="text">
+
+
+                <label class="col-md-5" for="semesterInfo">Semester Info: <span class="mandatoryfield">*</span></label>
+                <input placeholder="" name="semesterInfo" id="semesterInfo"
+                       class="input-fields validate[required]"
+                       maxlength="50"
+                       tyle=" height: 21px; width:250px;" type="text">
+
+                <!--<button id="create" name="create" type="button"  class="btn blue btn-sm" onclick='createFn()' ><i-->
+                <!--class="fa fa-check"></i> Create-->
+                <!--</button>-->
+
+                <!--<button id="update" name="update" type="button"  class="btn blue btn-sm" onclick='updateFn()' ><i-->
+                <!--class="fa fa-check"></i> Update-->
+                <!--</button>-->
+
+                <button id="saveStudent" name="saveStudent" type="button" class="btn blue btn-sm" onclick='saveStudentFn()'><i
+                        class="fa fa-check"></i> Save
+                </button>
+
+                <button id="listStudent" name="listStudent" type="button" class="btn blue btn-sm" onclick='listStudentFn()'><i
+                        class="fa fa-check"></i> hit list
+                </button>
+
+                <!--<p th:text="hello"></p>-->
+
+            </div>
+        </div>
+    </form>
+
+    <table border="1" id="listStudentTable">
+        <thead>
+        <tr>
+            <th>Index</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Course Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</div>

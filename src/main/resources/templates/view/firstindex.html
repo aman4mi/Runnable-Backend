@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Falgun</title>
+    <div th:replace="commonfragment/common :: gcss"></div>
+</head>
+
+<body>
+
+<div class="container">
+    <div th:replace="commonfragment/common :: gnavbar"></div>
+
+    <div class="col-md-4 sidenav">
+        <div th:replace="commonfragment/common :: gleftbar"></div>
+    </div>
+
+    <div class="col-md-8">
+
+        <div layout:fragment="custom-scripts">
+            <!--Custom page specific scripts goes here-->
+
+        </div>
+
+    </div>
+
+</div>
+<div th:replace="commonfragment/common :: gscripts"></div>
+</body>
+
+</html>
