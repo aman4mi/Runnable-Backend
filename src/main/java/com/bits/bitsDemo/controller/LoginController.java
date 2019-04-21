@@ -25,7 +25,7 @@ public class LoginController {
     @RequestMapping(value = {"/", "/login", "/error"}, method = RequestMethod.GET)
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login/login");
+        modelAndView.setViewName("login/userlogin");
         return modelAndView;
     }
 
