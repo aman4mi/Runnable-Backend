@@ -24,8 +24,6 @@ import java.util.Map;
 public class BaseService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
-    private static final String EXECUTING_SQL = " EXECUTING SQL: ";
-    private static final String PARAMS = " PARAMS: ";
 
     @Autowired
     DataSource dataSource;
@@ -61,8 +59,8 @@ public class BaseService {
     }
 
     private void consolePrint(String query, Object params) {
-        System.out.println(EXECUTING_SQL + query);
-        if (params != null) System.out.println(PARAMS + params);
+        System.out.print("EXECUTING SQL: " + query);
+        if (params != null) System.out.print("PARAMS: " + params);
     }
 
     public void getData(Map map) {

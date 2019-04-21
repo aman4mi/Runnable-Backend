@@ -26,24 +26,25 @@ public class StudentController extends BaseController {
     }
 
 
-    @GetMapping("/student")
-    public String showStudent() {
+    @GetMapping("/admin/student")
+    public String showStudent()
+    {
         return "view/student/show";
     }
 
-    @GetMapping("/studentRestShow")
+    @GetMapping("/admin/studentRestShow")
     public String studentRestShow() {
         return "view/studentrest/show"; // this is to rest UI
     }
 
-    @RequestMapping(value = "/saveStudent", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/saveStudent", method = RequestMethod.POST)
     @ResponseBody
     public String saveStudent(@RequestParam Map<String, Object> parameters) throws Exception {
         // @RequestParam MultiValueMap parameters  //it also very effictive.
         return renderOutput(createStudentInfoActionService, parameters);
     }
 
-    @GetMapping("/listStudent")
+    @GetMapping("/admin/listStudent")
     @ResponseBody
     public String ListStudent(Map<String, Object> parameters) {
 
