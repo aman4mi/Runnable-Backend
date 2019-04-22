@@ -12,6 +12,44 @@
     <div th:replace="commonfragment/common :: gcss"></div>
     <div th:replace="commonfragment/common :: gscripts"></div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--Menu Hover Action custom CSS-->
+    <style>
+        .dropbtn {
+            color: white;
+            padding: 3px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            /*position: absolute;*/
+            background-color: #f1f1f1;
+            min-width: 160px;
+            /*box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);*/
+            /*z-index: 1;*/
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 5px 5px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {}
+    </style>
+
 </head>
 
 <body>
@@ -21,15 +59,14 @@
 
     <div class="row" >
 
-        <div class="col-md-3" >
+        <div class="col-md-2" >
             <div th:replace="commonfragment/common :: gleftbar"></div>
         </div>
 
-        <div class="col-md-9" >
-            <!--<div layout:fragment="content" style="height: 90% ;overflow-y: scroll; bottom: 50px;">-->
-            <div layout:fragment="content">
-                <!--Page content goes here-->
-            </div>
+        <div class="col-md-10" >
+                <div layout:fragment="content">
+                    <!--Page content goes here-->
+                </div>
         </div>
 
     </div>

@@ -11,19 +11,40 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Faculties <span class="sr-only">(current)</span></a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle dropbtn" href="#" id="menuHoverDropDown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            Menu
+                        </a>
+                        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://github.com/">Github</a><br>
+                            <a class="dropdown-item" href="https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d">Spring Security</a><br>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Departments </a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle dropbtn" href="#" id="menuHoverDropDown2" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            Departments
+                        </a>
+                        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href="#">Department1 </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="nav-link" href="#">Department2 </a>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Peoples </a>
-                    </li>
+
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Peoples </a>-->
+                    <!--</li>-->
+
                 </ul>
+
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -37,6 +58,7 @@
                             </div>
                         </li>
                     </ul>
+
                 </form>
 
 
@@ -68,22 +90,28 @@
     </div>
 
 
-    <div class="" th:fragment="gleftbar">
-        <a href="/admin/student">Student</a><br>
-        <a href="/admin/studentRestShow">Student Rest</a><br>
-        <a href="https://github.com/">Github</a><br>
-        <a href="https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d">Spring Security</a><br>
-        <a href="https://www.youtube.com/">Youtube</a><br>
-        <a href="https://www.prothomalo.com/">Prothomalo</a><br>
-        <a href="https://erecruitment.bb.org.bd/career/jobopportunity_bscs.php">BB</a><br>
-        <a href="http://subeen.com/tag/%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%E0%A6%AC%E0%A7%87%E0%A6%9C/">DB</a><br>
+    <!--<div class="" th:fragment="gleftbar">-->
+        <!--<a href="/admin/student">Student</a><br>-->
+        <!--<a href="/admin/studentRestShow">Student Rest</a><br>-->
+        <!--<a href="https://github.com/">Github</a><br>-->
+        <!--<a href="https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d">Spring Security</a><br>-->
+        <!--<a href="https://www.youtube.com/">Youtube</a><br>-->
+        <!--<a href="https://www.prothomalo.com/">Prothom alo</a><br>-->
+        <!--<a href="https://erecruitment.bb.org.bd/career/jobopportunity_bscs.php">BB</a><br>-->
+        <!--<a href="http://subeen.com/tag/%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%E0%A6%AC%E0%A7%87%E0%A6%9C/">DB</a><br>-->
+        <!--<a href="https://mdbootstrap.com/docs/jquery/forms/inputs/">Dootstrap Forms</a><br>-->
+    <!--</div>-->
+
+    <div class="dropdown" th:fragment="gleftbar">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a class="" href="/admin/student">Student</a><br>
+            <a class="" href="/admin/studentRestShow">Student Rest</a><br>
+            <a class="" href="https://github.com/">Github</a><br>
+
+        </div>
     </div>
 
-    <!--<div class="" th:fragment="gloader">-->
-    <!--<div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;">-->
-    <!--<img src='asset/images/3.gif' width="64" height="64" />-->
-    <!--<br>Loading..</div>-->
-    <!--</div>-->
 
 </div>
 
