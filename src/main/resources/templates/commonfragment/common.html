@@ -1,8 +1,9 @@
 <div xmlns:th="http://www.w3.org/1999/xhtml">
 
-    <div class="" th:fragment="gnavbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+    <div class="sticky-top" th:fragment="gnavbar" >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light topnavbar ">
+
+            <a class="navbar-brand" href="#">Falgun </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -11,34 +12,41 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Faculties <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/student">Student</a>
-                            <a class="dropdown-item" href="/admin/studentRestShow">Student Rest</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        <a class="nav-link" href="#">Departments </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Peoples </a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="" th:src="@{/asset/images/logout.png}" width="15" height="15" alt=" ">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/registration">Registration</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
                 </form>
-                <p><a href="/logout">&nbspLogout</a></p>
+
+
             </div>
         </nav>
+        <!--loader image-->
+        <div id="loading" style="display:none;" class="">
+            <img th:src="@{/asset/images/103.gif}" width="100%" height="4"/>
+            <br></div>
+
     </div>
 
     <div class="" th:fragment="gcss">
@@ -46,29 +54,36 @@
     </div>
 
     <div class="" th:fragment="gscripts">
-        <script type="text/javascript" th:src="@{/asset/navcss/jquery-3.3.1.slim.min.js}"></script>
-        <script type="text/javascript" th:src="@{/asset/navcss/popper.min.js}"></script>
-        <script type="text/javascript" th:src="@{/asset/navcss/bootstrap.min.js}"></script>
+        <script type="text/javascript" th:src="@{/asset/scripts/jquery-3.3.1.slim.min.js}"></script>
+        <script type="text/javascript" th:src="@{/asset/scripts/jquery-3.1.1.min.js}"></script>
+        <script type="text/javascript" th:src="@{/asset/scripts/popper.min.js}"></script>
+        <script type="text/javascript" th:src="@{/asset/scripts/bootstrap.min.js}"></script>
     </div>
 
+    <div class="" th:fragment="gfooter" style="width: 80%; position: fixed; bottom: 0; height: 3%; background-color: #f2f2f2" >
+        <footer class="">
+            <!--<p class="float-right"><a href="/admin/home">Home</a></p>-->
+            <p align="center">&nbsp&nbsp Copyright ©2019 AMAN &middot; All rights reserved. <a href="/admin/home">Home</a><a href="#"></a></p>
+        </footer>
+    </div>
 
 
     <div class="" th:fragment="gleftbar">
         <a href="/admin/student">Student</a><br>
         <a href="/admin/studentRestShow">Student Rest</a><br>
-        <a href="#">Clients</a><br>
-        <a href="#">Contact</a><br>
-        <a href="#">Contact</a><br>
-        <a href="#">Contact</a><br>
-        <a href="#">Contact</a><br>
-        <a href="#">Contact</a><br>
+        <a href="https://github.com/">Github</a><br>
+        <a href="https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d">Spring Security</a><br>
+        <a href="https://www.youtube.com/">Youtube</a><br>
+        <a href="https://www.prothomalo.com/">Prothomalo</a><br>
+        <a href="https://erecruitment.bb.org.bd/career/jobopportunity_bscs.php">BB</a><br>
+        <a href="http://subeen.com/tag/%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%E0%A6%AC%E0%A7%87%E0%A6%9C/">DB</a><br>
     </div>
 
-    <div class="" th:fragment="gloader">
-        <div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;">
-            <img src='asset/images/2.gif' width="64" height="64" />
-            <br>Loading..</div>
-    </div>
+    <!--<div class="" th:fragment="gloader">-->
+    <!--<div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;">-->
+    <!--<img src='asset/images/3.gif' width="64" height="64" />-->
+    <!--<br>Loading..</div>-->
+    <!--</div>-->
 
 </div>
 

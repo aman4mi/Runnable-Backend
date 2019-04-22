@@ -2,13 +2,23 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+//            alert("Welcome dev team");
+            $("#pageContent").load("show.html");
         });
 
+        function createFn() {
+            var bkash = $("#bikashNo").val();
+            alert("mobile no: " + bkash);
+        }
+
+        function updateFn() {
+            alert("ok update");
+        }
 
         /* hit controller to create (insert) data in DB */
         function saveStudentFn() {
             var formData = $("#studentform").serialize();
-            $("#wait").css("display", "block");
+            $("#loading").css("display", "block");
 
             $.ajax({
                 type: "post",
@@ -17,15 +27,15 @@
                 dataType: "json",
                 success: function (data) {
                     swal("Welcome ", data.message);
-                    $("#wait").css("display", "none");
+                    $("#loading").css("display", "none");
                 }
             });
+
         }
 
         /* hit controller to fetch data from database and display in table */
         function listStudentFn() {
-            $("#wait").css("display", "block");
-
+            $("#loading").css("display", "block");
             $.ajax({
                 type: "get",
                 url: "/admin/listStudent",
@@ -45,7 +55,7 @@
                                 '</tr>');
                         $('table> tbody').append($row);
                     });
-                    $("#wait").css("display", "none");
+                    $("#loading").css("display", "none");
                 }
             });
         }
