@@ -1,10 +1,12 @@
 <div xmlns:th="http://www.w3.org/1999/xhtml">
 
     <div class="sticky-top" style="background-color: lightblue;" th:fragment="gnavbar">
+        <!--this also works fine here-->
+        <!--<img th:src="@{/asset/images/45.gif}" class="overlay" id="customloader"/>  -->
 
-        <div id="loading" style="" class="">
-            <img th:src="@{/asset/images/103.gif}" width="100%" height="4"/>
-        </div>
+        <!--<div id="loading" style="" class="">-->
+        <!--<img th:src="@{/asset/images/103.gif}" width="100%" height="4"/>-->
+        <!--</div>-->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light topnavbar ">
             <a class="navbar-brand" href="#">Rebel </a>
@@ -80,6 +82,20 @@
         <script type="text/javascript" th:src="@{/asset/scripts/jquery-3.1.1.min.js}"></script>
         <script type="text/javascript" th:src="@{/asset/scripts/popper.min.js}"></script>
         <script type="text/javascript" th:src="@{/asset/scripts/bootstrap.min.js}"></script>
+        <script>
+            function startLoader(loaderId, formId, outerdivId) {
+                $(outerdivId).css({opacity: 0.5});
+                $(loaderId).css('visibility', 'visible'); // Hide element
+                $(formId).prop("disabled", true);
+            }
+
+            function stopLoader(loaderId, formId, outerdivId) {
+                $(outerdivId).css({opacity: 1});
+                $(formId).prop("disabled", false);
+//            $("#studentform :input").prop("disabled", false);
+                $(loaderId).css('visibility', 'hidden'); // Show element
+            }
+        </script>
     </div>
 
     <div class="" th:fragment="gfooter"

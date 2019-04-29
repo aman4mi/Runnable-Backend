@@ -1,35 +1,20 @@
 <div class="container" th:fragment="firstscript" xmlns:th="http://www.w3.org/1999/xhtml">
 
     <script type="text/javascript">
+        var loaderId = "#customloader";
+        var formId = "#customloader";
+        var outerdivId = "#outerdiv";
+
         $(document).ready(function () {
-            $("#loading").css('visibility', 'hidden'); // Hide element
+//            $("#loading").css('visibility', 'hidden'); // Hide element
+            $(loaderId).css('visibility', 'hidden'); // Hide element
+            listStudentFn();
         });
 
-        /* hit controller to create (insert) data in DB */
-        function saveStudentFn() {
-            var formData = $("#studentform").serialize();
-            $("#loading").css('visibility', 'visible'); // Hide element
-            $("#studentform :input").prop("disabled", true);
-
-            $.ajax({
-                type: "post",
-                url: "/admin/saveStudent",
-                data: formData,
-                dataType: "json",
-                success: function (data) {
-                    swal("Welcome ", data.message);
-                    $("#loading").css('visibility', 'hidden'); // Show element
-                    $("#studentform :input").prop("disabled", false);
-                }
-            });
-
-        }
 
         /* hit controller to fetch data from database and display in table */
         function listStudentFn() {
-//            $("#loading").css("display", "block");
-            $("#loading").css('visibility', 'visible'); // Hide element
-            $("#studentform :input").prop("disabled", true);
+            startLoader(loaderId, formId, outerdivId);
             $.ajax({
                 type: "get",
                 url: "/admin/listStudent",
@@ -41,8 +26,7 @@
                     var dataObj = data.queryList;
                     tableDataLoad(dataObj);
 
-                    $("#studentform :input").prop("disabled", false);
-                    $("#loading").css('visibility', 'hidden'); // Show element
+                    stopLoader(loaderId, formId, outerdivId);
                 }
             });
 

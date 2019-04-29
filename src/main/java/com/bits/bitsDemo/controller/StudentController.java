@@ -32,6 +32,12 @@ public class StudentController extends BaseController {
         return "view/student/show";
     }
 
+    @GetMapping("/admin/createStudent")
+    public String createStudent()
+    {
+        return "view/student/create/show";
+    }
+
     @GetMapping("/admin/studentRestShow")
     public String studentRestShow() {
         return "view/studentrest/show"; // this is to rest UI

@@ -11,7 +11,6 @@
     <div th:replace="commonfragment/common :: gcss"></div>
     <div th:replace="commonfragment/common :: gscripts"></div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <!--Menu Hover Action custom CSS-->
     <style>
         .dropbtn {
@@ -42,13 +41,27 @@
             display: block;
         }
 
-        .dropdown-content a:hover {background-color: #ddd;}
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
 
-        .dropdown:hover .dropdown-content {display: block;}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-        .dropdown:hover .dropbtn {}
+        .dropdown:hover .dropbtn {
+        }
+
+        .overlay {
+            position: fixed;
+            background: rgba(0,0,0,0.8);
+            width: 10%;
+            height: 10%;
+            top: 50%;
+            left: 50%;
+        }
+
     </style>
-
 </head>
 
 <body>
@@ -56,16 +69,21 @@
 <div class="container">
     <div class="" th:replace="commonfragment/common :: gnavbar"></div>
 
-    <div class="row" >
+    <div class="row">
 
-        <div class="col-md-2" >
+        <div class="col-md-2">
             <div th:replace="commonfragment/common :: gleftbar"></div>
         </div>
 
-        <div class="col-md-10" >
+        <div class="col-md-10">
+            <div class="mb-sm-2 mt-2 border" id="outerdiv">
+                <img th:src="@{/asset/images/45.gif}" class="overlay" id="customloader"/>
+
                 <div layout:fragment="content">
+
                     <!--Page content goes here-->
                 </div>
+            </div>
         </div>
 
     </div>
