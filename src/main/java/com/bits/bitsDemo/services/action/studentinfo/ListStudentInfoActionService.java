@@ -55,7 +55,6 @@ public class ListStudentInfoActionService extends BaseService implements ActionI
 
     private String executeWithParams() {
 //        String sqlString = "SELECT id, studentId, studentName, courseId FROM StudentInfo ";
-//        String sqlString = "SELECT id, student_id, student_name, course_id FROM student_info";
         String sqlString = "SELECT id, course_id, course_title, created_by, created_on, dept_name, \n" +
                             "  semester_info, student_id, student_name\n" +
                             "  FROM student_info";
