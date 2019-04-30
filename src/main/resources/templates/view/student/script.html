@@ -3,33 +3,55 @@
     <script type="text/javascript">
         var loaderId = "#customloader";
         var formId = "#customloader";
-        var outerdivId = "#outerdiv";
 
         $(document).ready(function () {
-//            $("#loading").css('visibility', 'hidden'); // Hide element
             $(loaderId).css('visibility', 'hidden'); // Hide element
             listStudentFn();
         });
 
-
-        /* hit controller to fetch data from database and display in table */
         function listStudentFn() {
-            startLoader(loaderId, formId, outerdivId);
+            startLoader(formId);
+
             $.ajax({
                 type: "get",
                 url: "/admin/listStudent",
                 data: "",
                 dataType: "json",
+                success: function (data) {
+                    var dataObj = data.queryList;
+                    $('#example').DataTable( {
+                        "aaData": dataObj,
+                        "columns": [
+                            { "data": "id"},
+                            { "data": "student_id"},
+                            { "data": "student_name"},
+                            { "data": "course_id"},
+                            { "data": "course_title"},
+                            { "data": "dept_name"},
+                            { "data": "semester_info"}
+                        ]
+                    } );
+                    stopLoader(formId);
+                }
+            });
+        }
 
+
+        /* hit controller to fetch data from database and display in table */
+        function listStudentFn1() {
+            startLoader(formId);
+            $.ajax({
+                type: "get",
+                url: "/admin/listStudent",
+                data: "",
+                dataType: "json",
                 success: function (data) {
                     tableDataReset();
                     var dataObj = data.queryList;
                     tableDataLoad(dataObj);
-
-                    stopLoader(loaderId, formId, outerdivId);
+                    stopLoader(formId);
                 }
             });
-
         }
 
         /*

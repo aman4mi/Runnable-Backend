@@ -3,7 +3,6 @@
     <script type="text/javascript">
         var loaderId = "#customloader";
         var formId = "#customloader";
-        var outerdivId = "#outerdiv";
 
         $(document).ready(function () {
             $(loaderId).css('visibility', 'hidden'); // Hide element
@@ -12,7 +11,7 @@
         /* hit controller to create (insert) data in DB */
         function saveStudentFn() {
             var formData = $("#studentform").serialize();
-            startLoader(loaderId, formId, outerdivId);
+            startLoader(formId);
 
             $.ajax({
                 type: "post",
@@ -22,7 +21,7 @@
                 success: function (data) {
                     swal("Welcome ", data.message);
 
-                    stopLoader(loaderId, formId, outerdivId);
+                    stopLoader(formId);
                 }
             });
 

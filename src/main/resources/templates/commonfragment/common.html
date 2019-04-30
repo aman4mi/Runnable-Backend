@@ -75,6 +75,10 @@
 
     <div class="" th:fragment="gcss">
         <link rel="stylesheet" type="text/css" th:href="@{/asset/navcss/bootstrap.min.css}"/>
+        <!--datatable-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+
     </div>
 
     <div class="" th:fragment="gscripts">
@@ -83,19 +87,25 @@
         <script type="text/javascript" th:src="@{/asset/scripts/popper.min.js}"></script>
         <script type="text/javascript" th:src="@{/asset/scripts/bootstrap.min.js}"></script>
         <script>
-            function startLoader(loaderId, formId, outerdivId) {
-                $(outerdivId).css({opacity: 0.5});
-                $(loaderId).css('visibility', 'visible'); // Hide element
+            function startLoader( formId) {
+                $("#outerdiv").css({opacity: 0.5});
+                $("#customloader").css('visibility', 'visible'); // Hide element
                 $(formId).prop("disabled", true);
             }
 
-            function stopLoader(loaderId, formId, outerdivId) {
-                $(outerdivId).css({opacity: 1});
+            function stopLoader(formId) {
+                $("#outerdiv").css({opacity: 1});
                 $(formId).prop("disabled", false);
 //            $("#studentform :input").prop("disabled", false);
-                $(loaderId).css('visibility', 'hidden'); // Show element
+                $("#customloader").css('visibility', 'hidden'); // Show element
             }
         </script>
+
+        <!--datatable-->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
     </div>
 
     <div class="" th:fragment="gfooter"
