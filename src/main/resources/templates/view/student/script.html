@@ -19,23 +19,68 @@
                 dataType: "json",
                 success: function (data) {
                     var dataObj = data.queryList;
-                    $('#example').DataTable( {
+                    $('#example').DataTable({
                         "aaData": dataObj,
                         "columns": [
-                            { "data": "id"},
-                            { "data": "student_id"},
-                            { "data": "student_name"},
-                            { "data": "course_id"},
-                            { "data": "course_title"},
-                            { "data": "dept_name"},
-                            { "data": "semester_info"}
+                            {"data": "id"},
+//                            {
+//                                "data": "student_id",
+//                                "render": function (data, type, row, meta) {
+//                                    if (type === 'display') {
+//                                        data = '<a href="' + data + '">' + data + '</a>';
+//                                    }
+//
+//                                    return data;
+//                                }
+//                            },
+                            {
+                                "data": function (data, type, row, meta) {
+                                    return '<a href="#"  onclick="setDataToForm(' + '\'' + data.id + '\',' + '\'' + data.student_id + '\')">' + data.student_id + '</a>';
+                                }
+                            },
+
+                            {"data": "student_name"},
+                            {"data": "course_id"},
+                            {"data": "course_title"},
+                            {"data": "dept_name"},
+                            {"data": "semester_info"}
                         ]
-                    } );
+                    });
                     stopLoader(formId);
                 }
             });
         }
 
+        function setDataToForm(id) {
+            $.ajax({
+                url: '/admin/selectStudent',
+                type: 'GET',
+                dataType: 'json',
+                data: {id: id},
+                success: function (result) {
+
+                    var studentId = result.studentId;
+                    var studentName = result.studentName;
+                    var courseId = result.courseId;
+                    var courseTitle = result.courseTitle;
+                    var deptName = result.deptName;
+                    var semesterInfo = result.semesterInfo;
+
+//                    $("#studentId").val("asvcgzvdc");
+//                    $("#studentName").val(result.studentName);
+//                    $("#courseId").val(result.courseId);
+//                    $("#courseTitle").val(result.courseTitle);
+//                    $("#deptName").val(result.deptName);
+//                    $("#semesterInfo").val(result.semesterInfo);
+
+                    url = "/admin/createStudent?studentId=" + studentId + "&studentName=" + studentName +
+                            "&courseId=" + courseId + "&courseTitle=" + courseTitle + "&deptName=" + deptName + "&semesterInfo=" + semesterInfo;
+                    window.open(url);
+                }, error: function (x, e) {
+                    onAjaxError(x, e);
+                }
+            });
+        }
 
         /* hit controller to fetch data from database and display in table */
         function listStudentFn1() {

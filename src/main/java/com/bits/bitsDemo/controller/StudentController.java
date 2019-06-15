@@ -1,8 +1,11 @@
 package com.bits.bitsDemo.controller;
 
 import com.bits.bitsDemo.common.BaseController;
+import com.bits.bitsDemo.entity.StudentInfo;
+import com.bits.bitsDemo.repository.StudentInfoRepository;
 import com.bits.bitsDemo.services.action.studentinfo.CreateStudentInfoActionService;
 import com.bits.bitsDemo.services.action.studentinfo.ListStudentInfoActionService;
+import com.bits.bitsDemo.services.action.studentinfo.SelectStudentInfoActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,26 +18,30 @@ import java.util.Map;
 @Controller
 public class StudentController extends BaseController {
 
+    @Autowired
+    private StudentInfoRepository studentInfoRepository;
+
     private CreateStudentInfoActionService createStudentInfoActionService;
     private ListStudentInfoActionService listStudentInfoActionService;
+    private SelectStudentInfoActionService selectStudentInfoActionService;
 
     @Autowired
     public StudentController(CreateStudentInfoActionService createStudentInfoActionService
-            , ListStudentInfoActionService listStudentInfoActionService) {
+            , ListStudentInfoActionService listStudentInfoActionService
+            , SelectStudentInfoActionService selectStudentInfoActionService) {
         this.createStudentInfoActionService = createStudentInfoActionService;
         this.listStudentInfoActionService = listStudentInfoActionService;
+        this.selectStudentInfoActionService = selectStudentInfoActionService;
     }
 
 
     @GetMapping("/admin/student")
-    public String showStudent()
-    {
+    public String showStudent() {
         return "view/student/show";
     }
 
     @GetMapping("/admin/createStudent")
-    public String createStudent()
-    {
+    public String createStudent() {
         return "view/student/create/show";
     }
 
@@ -55,6 +62,15 @@ public class StudentController extends BaseController {
     public String ListStudent(Map<String, Object> parameters) {
 
         return renderOutput(listStudentInfoActionService, parameters);
+    }
+
+    @GetMapping("/admin/selectStudent")
+    @ResponseBody
+    public StudentInfo studentInfowsw(@RequestParam Map<String, Object> parameters) {
+
+//        StudentInfo studentInfo = studentInfoRepository.findById(Long.parseLong((String) parameters.get("id")));
+        return selectStudentInfoActionService.studentInfo(parameters);
+//        return renderOutput(selectStudentInfoActionService, parameters);
     }
 
 
