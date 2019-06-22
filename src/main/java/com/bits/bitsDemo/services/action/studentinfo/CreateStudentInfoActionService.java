@@ -19,8 +19,9 @@ import java.util.Map;
 @Component
 public class CreateStudentInfoActionService extends BaseService implements ActionInterface {
 
-     private StudentInfoRepository studentInfoRepository;
+    private StudentInfoRepository studentInfoRepository;
     private static String CREATE_SUCCESS_MESSAGE = "Successfully Created";
+    private static String UPDATE_SUCCESS_MESSAGE = "Successfully Updated";
 
 
     @Autowired
@@ -38,7 +39,15 @@ public class CreateStudentInfoActionService extends BaseService implements Actio
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = format.format(new Date());
 
-        StudentInfo studentInfo = new StudentInfo();
+        StudentInfo studentInfo = null;
+
+        if (previousResult.get("id") != " " || previousResult.get("id") != null) {
+            long id = Long.parseLong((String) previousResult.get("id"));
+            studentInfo = studentInfoRepository.findById(id);
+            previousResult.put("idAvailable", "true");
+        } else {
+            studentInfo = new StudentInfo();
+        }
 
         studentInfo.setStudentId((String) previousResult.get("studentId"));
         studentInfo.setStudentName((String) previousResult.get("studentName"));
@@ -61,8 +70,12 @@ public class CreateStudentInfoActionService extends BaseService implements Actio
 
     @Override
     public Map buildSuccessResult(Map executeResult) {
+        if (executeResult.get("idAvailable") == "true") {
+            return super.setSuccess(executeResult, UPDATE_SUCCESS_MESSAGE);
+        } else {
+            return super.setSuccess(executeResult, CREATE_SUCCESS_MESSAGE);
+        }
 
-        return super.setSuccess(executeResult, CREATE_SUCCESS_MESSAGE);
     }
 
     @Override

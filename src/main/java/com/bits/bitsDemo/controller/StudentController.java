@@ -8,6 +8,7 @@ import com.bits.bitsDemo.services.action.studentinfo.ListStudentInfoActionServic
 import com.bits.bitsDemo.services.action.studentinfo.SelectStudentInfoActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.Map;
 /**
  * Created by aman.ullah on 2/26/2019.
  */
+
 @Controller
 public class StudentController extends BaseController {
 
@@ -64,13 +66,20 @@ public class StudentController extends BaseController {
         return renderOutput(listStudentInfoActionService, parameters);
     }
 
-    @GetMapping("/admin/selectStudent")
+    @PostMapping("/admin/selectStudent")
     @ResponseBody
-    public StudentInfo studentInfowsw(@RequestParam Map<String, Object> parameters) {
+    public Long studentInfoids(@RequestParam Map<String, Object> parameters) {
 
-//        StudentInfo studentInfo = studentInfoRepository.findById(Long.parseLong((String) parameters.get("id")));
-        return selectStudentInfoActionService.studentInfo(parameters);
-//        return renderOutput(selectStudentInfoActionService, parameters);
+        long id = Long.parseLong((String) parameters.get("id"));
+
+        return id;
+    }
+
+    @RequestMapping(value = "/admin/editStudent", method = {RequestMethod.GET, RequestMethod.POST})
+    public String studentInfoEdit(@RequestParam Map<String, Object> parameters, Model model) {
+        StudentInfo studentInfo = selectStudentInfoActionService.studentInfo(parameters);
+        model.addAttribute("studentInfo", studentInfo);
+        return "view/student/edit/show";
     }
 
 
