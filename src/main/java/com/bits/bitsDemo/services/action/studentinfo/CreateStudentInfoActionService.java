@@ -41,7 +41,7 @@ public class CreateStudentInfoActionService extends BaseService implements Actio
 
         StudentInfo studentInfo = null;
 
-        if (previousResult.get("id") != " " || previousResult.get("id") != null) {
+        if (previousResult.get("id") != null) {
             long id = Long.parseLong((String) previousResult.get("id"));
             studentInfo = studentInfoRepository.findById(id);
             previousResult.put("idAvailable", "true");
